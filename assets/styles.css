@@ -1,12 +1,22 @@
 :root{
-  --bg:#0f1114;
-  --bg2:#0b0d10;
-  --surface:rgba(255,255,255,.045);
-  --surface2:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.10);
-  --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.65);
-  --accent: #8b5cf6; /* violet */
+  /* Foundation */
+  --bg: #09101A;          /* Abyssal Blue */
+  --bg2:#111214;          /* Void Black */
+  --surface: rgba(255,255,255,.045);
+  --surface2: rgba(255,255,255,.06);
+
+  /* Structure */
+  --border: rgba(69,90,107,.42);      /* Storm Slate (muted) */
+  --border-strong: rgba(69,90,107,.60);
+
+  /* Text */
+  --text: #E9ECEF;        /* Bone White */
+  --muted:#B2B8BA;        /* Desaturated Ash */
+
+  /* Highlights */
+  --accent:#34A4DF;       /* Piercing Iris */
+  --accent2:#60C5F1;      /* Cold Neon */
+
   --shadow: 0 18px 60px rgba(0,0,0,.55);
   --radius: 18px;
   --max: 1080px;
@@ -14,40 +24,44 @@
 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
+
 body{
   margin:0;
   color:var(--text);
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background:
-    radial-gradient(900px 500px at 20% 10%, rgba(139,92,246,.20), transparent 60%),
-    radial-gradient(900px 500px at 80% 20%, rgba(139,92,246,.10), transparent 55%),
+    radial-gradient(900px 520px at 20% 12%, rgba(52,164,223,.18), transparent 60%),
+    radial-gradient(820px 520px at 80% 18%, rgba(96,197,241,.10), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.02), transparent 35%),
     var(--bg);
 }
 
-/* subtle dotted grid texture */
+/* subtle dotted grid */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-  opacity:.22; /* keep subtle */
-  background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px);
+  opacity:.22;
+  background-image: radial-gradient(rgba(69,90,107,.45) 1px, transparent 1px);
   background-size: 28px 28px;
-  mask-image: radial-gradient(closest-side at 50% 10%, rgba(0,0,0,1), rgba(0,0,0,.35) 55%, rgba(0,0,0,.10));
+  mask-image: radial-gradient(closest-side at 50% 12%, rgba(0,0,0,1), rgba(0,0,0,.28) 62%, rgba(0,0,0,.10));
   z-index:-1;
 }
 
 a{ color:inherit; text-decoration:none; }
 .container{ max-width:var(--max); margin:0 auto; padding: 22px 18px 80px; }
 
+/* ---------- NAV ---------- */
 .nav{
   position:sticky;
   top:0;
   z-index:50;
   backdrop-filter: blur(10px);
-  background: rgba(15,17,20,.70);
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  background: rgba(9,16,26,.72);
+  border-bottom: 1px solid rgba(69,90,107,.25);
 }
+
 .nav-inner{
   max-width:var(--max);
   margin:0 auto;
@@ -55,7 +69,7 @@ a{ color:inherit; text-decoration:none; }
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px;
+  gap:14px;
 }
 
 .home{
@@ -64,69 +78,88 @@ a{ color:inherit; text-decoration:none; }
   align-items:center;
   justify-content:center;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(69,90,107,.35);
+  background: rgba(17,18,20,.55);
   box-shadow: var(--shadow);
 }
+
 .avatar{
   width:34px; height:34px;
-  border-radius: 12px;
+  border-radius: 14px;
   object-fit: cover;
   display:block;
 }
-.home-fallback .home-fallback-text{ display:block; }
+
 .home-fallback-text{
   display:none;
   font-weight:700;
-  color:rgba(255,255,255,.9);
+  color: var(--text);
 }
 
+.home-fallback .home-fallback-text{ display:block; }
+
+/* The pill nav must NOT wrap (fixes your broken alignment on mobile) */
 .menu{
   position:relative;
   display:flex;
-  gap:18px;
   align-items:center;
+  gap:10px;
   padding: 10px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(69,90,107,.30);
+  background: rgba(17,18,20,.50);
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width:none;
 }
+.menu::-webkit-scrollbar{ display:none; }
+
+/* disable the JS underline bar (it’s what looks broken on mobile) */
+.nav-ink{ display:none !important; }
+
 .nav-link{
+  position:relative;
   font-size:14px;
-  color: rgba(255,255,255,.82);
-  padding: 6px 8px;
+  color: rgba(233,236,239,.84);
+  padding: 8px 10px;
   border-radius: 999px;
+  flex: 0 0 auto;
 }
-.nav-link:hover{ color: rgba(255,255,255,.95); }
-.nav-link.active{ color: rgba(255,255,255,.98); }
+.nav-link:hover{ color: rgba(233,236,239,.96); }
 
-.nav-ink{
+/* Clean, consistent underline for active state */
+.nav-link.active::after{
+  content:"";
   position:absolute;
-  left: 10px; bottom: 6px;
-  height: 2px;
-  width: 40px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.75);
-  transform: translateX(0);
-  transition: transform .22s ease, width .22s ease, opacity .22s ease;
-  opacity: 0;
+  left:10px; right:10px;
+  bottom:2px;
+  height:2px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(52,164,223,.85), rgba(96,197,241,.75));
+  box-shadow: 0 0 18px rgba(52,164,223,.25);
 }
 
-.hero{ padding: 52px 0 28px; }
+/* ---------- HERO ---------- */
+.hero{ padding: 52px 0 26px; }
+
 .kicker{
   margin:0 0 12px;
-  color: var(--muted);
+  color: rgba(178,184,186,.90);
   letter-spacing: .18em;
   text-transform: uppercase;
   font-size: 12px;
 }
+
 .title{
   margin:0;
-  font-family: "Instrument Serif", serif;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight: 700;
   font-size: 52px;
-  line-height: 1.02;
+  line-height: 1.04;
   letter-spacing: -0.02em;
 }
+
 .lead{
   margin: 14px 0 0;
   max-width: 68ch;
@@ -137,43 +170,74 @@ a{ color:inherit; text-decoration:none; }
 
 .cta{ margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap; }
 
-.btn{
+/* Buttons: force white text on buttons (fixes black text bug) */
+.btn,
+button.btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:10px;
   padding: 12px 14px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(69,90,107,.38);
+  background: rgba(17,18,20,.52);
   box-shadow: var(--shadow);
-  transition: transform .12s ease, border-color .12s ease, background .12s ease, filter .12s ease;
+  color: var(--text) !important;
+  font: inherit;
+  cursor: pointer;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease, box-shadow .12s ease;
   user-select:none;
+  appearance:none;
+  -webkit-appearance:none;
 }
-.btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
-.btn.primary{
-  background: rgba(139,92,246,.22);
-  border-color: rgba(139,92,246,.35);
-}
-.btn.ghost{ background: transparent; box-shadow:none; }
-.btn.small{ padding: 10px 12px; border-radius: 12px; font-size: 13px; }
 
+.btn:hover,
+button.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(96,197,241,.40);
+  box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 26px rgba(52,164,223,.12);
+}
+
+.btn.primary,
+button.btn.primary{
+  background: rgba(52,164,223,.18);
+  border-color: rgba(52,164,223,.40);
+}
+
+.btn.ghost,
+button.btn.ghost{
+  background: transparent;
+  box-shadow:none;
+}
+
+.btn.small,
+button.btn.small{
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* ---------- MINI CARDS ---------- */
 .mini-grid{
   margin-top: 22px;
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
+
 .mini-card{
   padding: 16px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.10);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(69,90,107,.34);
+  background: linear-gradient(180deg, rgba(17,18,20,.62), rgba(17,18,20,.38));
 }
+
 .mini-title{ font-weight:600; margin-bottom:6px; }
 .mini-text{ color: var(--muted); font-size: 13px; line-height: 1.5; }
 
+/* ---------- SECTIONS ---------- */
 .section{ padding: 34px 0 0; }
+
 .section-head{
   display:flex;
   align-items:flex-end;
@@ -181,49 +245,64 @@ a{ color:inherit; text-decoration:none; }
   gap:14px;
   margin-bottom: 12px;
 }
+
 .section-head h2{
   margin:0;
-  font-family:"Instrument Serif", serif;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight: 700;
   font-size: 34px;
   letter-spacing: -0.01em;
 }
-.section-head p{ margin:0; color: var(--muted); font-size: 13px; max-width: 60ch; }
+
+.section-head p{
+  margin:0;
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 60ch;
+}
 
 .grid{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 12px;
 }
+
 .card{
   grid-column: span 12;
   padding: 16px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.10);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(69,90,107,.34);
+  background: linear-gradient(180deg, rgba(17,18,20,.64), rgba(17,18,20,.40));
   box-shadow: var(--shadow);
 }
+
 .card-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
 .card h3{ margin:0; font-size:16px; }
 .muted{ color: var(--muted); }
+
 .tags{ margin-top: 12px; display:flex; flex-wrap:wrap; gap:8px; }
 .tag{
   font-size: 12px;
-  color: rgba(255,255,255,.75);
+  color: rgba(233,236,239,.82);
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(69,90,107,.34);
+  background: rgba(9,16,26,.35);
 }
+
 .pill{
   font-size: 12px;
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.80);
+  border: 1px solid rgba(69,90,107,.34);
+  background: rgba(9,16,26,.35);
+  color: rgba(233,236,239,.86);
 }
+
 .actions{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
 
+/* ---------- POW CARDS ---------- */
 .pow-card{
   grid-column: span 12;
   display:grid;
@@ -231,17 +310,19 @@ a{ color:inherit; text-decoration:none; }
   gap: 14px;
   padding: 14px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.10);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(69,90,107,.34);
+  background: linear-gradient(180deg, rgba(17,18,20,.64), rgba(17,18,20,.40));
   box-shadow: var(--shadow);
 }
+
 .pow-thumb{
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.10);
+  border: 1px solid rgba(69,90,107,.34);
   background:
-    radial-gradient(120px 120px at 30% 30%, rgba(139,92,246,.25), transparent 60%),
-    rgba(255,255,255,.03);
+    radial-gradient(120px 120px at 30% 30%, rgba(52,164,223,.22), transparent 60%),
+    rgba(255,255,255,.02);
 }
+
 .pow-title{ font-weight:600; }
 .pow-meta{ margin-top:6px; color: var(--muted); font-size: 13px; }
 .pow-actions{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
@@ -250,8 +331,8 @@ a{ color:inherit; text-decoration:none; }
   margin-top: 16px;
   padding: 14px;
   border-radius: var(--radius);
-  border: 1px dashed rgba(255,255,255,.16);
-  background: rgba(255,255,255,.02);
+  border: 1px dashed rgba(69,90,107,.50);
+  background: rgba(17,18,20,.30);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -265,61 +346,94 @@ a{ color:inherit; text-decoration:none; }
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  color: rgba(255,255,255,.72);
+  color: rgba(233,236,239,.78);
 }
 
-/* Modal */
+/* ---------- MODAL ---------- */
 .modal{ position:fixed; inset:0; display:none; }
 .modal.show{ display:block; }
+
 .modal-backdrop{
   position:absolute; inset:0;
   background: rgba(0,0,0,.62);
 }
+
 .modal-panel{
   position:relative;
   max-width: 920px;
   margin: 8vh auto;
   padding: 16px;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(16,18,22,.88);
+  border: 1px solid rgba(69,90,107,.42);
+  background: rgba(9,16,26,.88);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
 }
+
 .modal-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.modal-title{ font-family:"Instrument Serif", serif; font-size: 26px; }
+.modal-title{ font-weight:700; font-size: 22px; }
+
 .icon-btn{
   width: 40px; height: 40px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.05);
-  color: rgba(255,255,255,.92);
+  border: 1px solid rgba(69,90,107,.42);
+  background: rgba(17,18,20,.50);
+  color: var(--text);
   font-size: 22px;
   line-height: 1;
+  cursor:pointer;
 }
+
 .gallery{
   margin-top: 12px;
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
+
 .shot{
   min-height: 130px;
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(69,90,107,.34);
+  background: rgba(17,18,20,.38);
   display:flex;
   align-items:center;
   justify-content:center;
-  color: rgba(255,255,255,.55);
+  color: rgba(178,184,186,.90);
   font-size: 13px;
 }
+
 .modal-foot{ margin-top: 14px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
 
-/* Responsive */
+/* ---------- CUSTOM CURSOR (desktop only) ---------- */
+/* Add more cursor PNGs into assets/cursors/ and map them here */
+@media (hover:hover) and (pointer:fine){
+  /* default for interactive elements */
+  a, button, .btn, .home, .nav-link { cursor: url("assets/cursors/hand.png") 10 4, pointer; }
+
+  /* keep normal text cursor where needed */
+  p, li, .lead, .muted { cursor: text; }
+
+  /* optional: add more cursor types by adding classes in HTML later */
+  .cursor-hand { cursor: url("assets/cursors/hand.png") 10 4, pointer; }
+  .cursor-pen  { cursor: url("assets/cursors/pen.png") 6 28, pointer; }
+  .cursor-grab { cursor: url("assets/cursors/grab.png") 14 14, grab; }
+}
+
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 860px){
-  .title{ font-size: 40px; }
+  .nav-inner{ padding: 12px 14px; }
+  .home{ width:40px; height:40px; border-radius: 14px; }
+  .avatar{ width:30px; height:30px; border-radius: 12px; }
+
+  .menu{ gap:8px; padding: 8px 10px; }
+  .nav-link{ font-size:13px; padding: 7px 9px; }
+
+  .hero{ padding: 42px 0 22px; }
+  .title{ font-size: 36px; line-height: 1.08; }
+  .btn{ padding: 11px 12px; }
   .mini-grid{ grid-template-columns: 1fr; }
+
   .section-head{ flex-direction:column; align-items:flex-start; }
   .pow-card{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
@@ -328,5 +442,5 @@ a{ color:inherit; text-decoration:none; }
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
-  .btn, .nav-ink{ transition:none; }
+  .btn{ transition:none; }
 }
