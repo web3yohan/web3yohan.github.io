@@ -377,14 +377,10 @@ button.btn.small{
 .modal-title{ font-weight:700; font-size: 22px; }
 
 .icon-btn{
-  width: 40px; height: 40px;
-  border-radius: 14px;
-  border: 1px solid rgba(69,90,107,.42);
-  background: rgba(17,18,20,.50);
-  color: var(--text);
-  font-size: 22px;
-  line-height: 1;
-  cursor:pointer;
+  width: 54px;
+  height: 46px;
+  padding: 0;
+  font-size: 18px;
 }
 
 .gallery{
