@@ -1,1 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yohan — Full POW</title>
+  <meta name="description" content="Detailed proof of work by project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div id="site">
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="home" href="/" aria-label="Home">
+          <span class="home-fallback-text" style="display:block;">Y</span>
+        </a>
 
+        <nav class="menu" aria-label="Primary">
+          <a class="nav-link" href="/">About Me</a>
+          <a class="nav-link" href="/experience/">Experiences</a>
+          <a class="nav-link" href="/pow/">Full POW</a>
+          <a class="nav-link" href="/contact/">Contact</a>
+          <span class="nav-ink" aria-hidden="true"></span>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <p class="kicker">Full Proof of Work</p>
+        <h1 class="title">All projects, in one place.</h1>
+        <p class="lead">Click any thumbnail to open the lightbox (blur + smooth transitions).</p>
+      </section>
+
+      <section class="section" id="cicada">
+        <div class="section-head">
+          <h2>Cicada Finance</h2>
+          <p>Ambassador • 3 proofs</p>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="grid-column: span 12;">
+            <div class="actions">
+              <button class="btn small primary" data-open-proof="cicada">Open first proof</button>
+            </div>
+            <div class="actions" style="margin-top:12px;">
+              <div class="thumb" data-proof="cicada" data-index="0"><img src="/assets/images/pow/cicada/01.webp" alt=""></div>
+              <div class="thumb" data-proof="cicada" data-index="1"><img src="/assets/images/pow/cicada/02.webp" alt=""></div>
+              <div class="thumb" data-proof="cicada" data-index="2"><img src="/assets/images/pow/cicada/03.webp" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mner">
+        <div class="section-head">
+          <h2>Mner Club</h2>
+          <p>Ambassador • 4 proofs</p>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="grid-column: span 12;">
+            <div class="actions">
+              <button class="btn small primary" data-open-proof="mner">Open first proof</button>
+            </div>
+            <div class="actions" style="margin-top:12px;">
+              <div class="thumb" data-proof="mner" data-index="0"><img src="/assets/images/pow/mner/01.webp" alt=""></div>
+              <div class="thumb" data-proof="mner" data-index="1"><img src="/assets/images/pow/mner/02.webp" alt=""></div>
+              <div class="thumb" data-proof="mner" data-index="2"><img src="/assets/images/pow/mner/03.webp" alt=""></div>
+              <div class="thumb" data-proof="mner" data-index="3"><img src="/assets/images/pow/mner/04.webp" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" data-lb-close></div>
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="lb-top">
+        <div class="lb-controls">
+          <button class="lb-btn" data-lb-prev aria-label="Previous">‹</button>
+          <button class="lb-btn" data-lb-next aria-label="Next">›</button>
+        </div>
+        <button class="lb-btn lb-close" data-lb-close aria-label="Close">×</button>
+      </div>
+      <img class="lb-img" id="lbImg" src="" alt="">
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+  </div>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
