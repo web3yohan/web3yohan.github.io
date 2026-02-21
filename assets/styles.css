@@ -1,4 +1,14 @@
-:root{
+:root{ --navH: 76px; } /* adjust later if needed */
+
+#page-top{
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+section[id], main[id], div[id]{
+  scroll-margin-top: calc(var(--navH) + 16px);
+
   /* Foundation */
   --bg: #09101A;          /* Abyssal Blue */
   --bg2:#111214;          /* Void Black */
@@ -113,20 +123,29 @@ a{ color:inherit; text-decoration:none; }
   -webkit-overflow-scrolling: touch;
   scrollbar-width:none;
 }
-.menu::-webkit-scrollbar{ display:none; }
-
-/* disable the JS underline bar (it’s what looks broken on mobile) */
-.nav-ink{ display:none !important; }
+.menu{ position:relative; }
 
 .nav-link{
   position:relative;
-  font-size:14px;
-  color: rgba(233,236,239,.84);
-  padding: 8px 10px;
-  border-radius: 999px;
-  flex: 0 0 auto;
 }
-.nav-link:hover{ color: rgba(233,236,239,.96); }
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:2px;
+  height:2px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(52,164,223,.85), rgba(96,197,241,.75));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease;
+}
+
+.nav-link.active::after{
+  transform: scaleX(1);
+}
 
 /* Clean, consistent underline for active state */
 .nav-link.active::after{
@@ -407,10 +426,9 @@ button.btn.small{
 /* ---------- CUSTOM CURSOR (desktop only) ---------- */
 /* Add more cursor PNGs into assets/cursors/ and map them here */
 @media (hover:hover) and (pointer:fine){
-  a, button, .btn, .home, .nav-link {
-    cursor: url("/assets/cursors/hand.png") 10 4, pointer;
+  a, button, .btn, .home, .nav-link, [data-open]{
+    cursor: url("/assets/cursors/hand.png") 10 4, pointer !important;
   }
-  p, li, .lead, .muted { cursor: text; }
 }
 
   /* optional: add more cursor types by adding classes in HTML later */
