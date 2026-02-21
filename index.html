@@ -14,195 +14,111 @@
 </head>
 
 <body>
-  <div id="page-top"></div>
+  <div id="site">
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="home" href="/" aria-label="Home">
+          <img class="avatar" src="/assets/images/avatar.png" alt=""
+               onerror="this.style.display='none'; this.parentElement.classList.add('home-fallback');">
+          <span class="home-fallback-text">Y</span>
+        </a>
 
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="home" href="#page-top" aria-label="Home">
-        <img class="avatar" src="/assets/images/avatar.png" alt=""
-             onerror="this.style.display='none'; this.parentElement.classList.add('home-fallback');">
-        <span class="home-fallback-text">Y</span>
-      </a>
+        <nav class="menu" aria-label="Primary">
+          <a class="nav-link" href="/">About Me</a>
+          <a class="nav-link" href="/experience/">Experiences</a>
+          <a class="nav-link" href="/pow/">Full POW</a>
+          <a class="nav-link" href="/contact/">Contact</a>
+          <span class="nav-ink" aria-hidden="true"></span>
+        </nav>
+      </div>
+    </header>
 
-      <nav class="menu" aria-label="Primary">
-        <a class="nav-link" href="#about">About Me</a>
-        <a class="nav-link" href="#experience">Experiences</a>
-        <a class="nav-link" href="#pow">POW</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <span class="nav-ink" aria-hidden="true"></span>
-      </nav>
-    </div>
-  </header>
+    <main class="container">
+      <section class="hero">
+        <p class="kicker">Content • Community • Social</p>
+        <h1 class="title">Experience things beyond the expectations.</h1>
+        <p class="lead">Intro + highlights. Full proof library lives on the dedicated Full POW page.</p>
 
-  <main class="container">
-    <section class="hero">
-      <p class="kicker">Content Creator • Community Builder</p>
-      <h1 class="title">Experience things beyond the expectations.</h1>
-      <p class="lead">Access curated proofs on-site. Full breakdowns in Notion.</p>
-
-<div class="cta">
-  <a class="btn primary" href="#pow">POW ↘</a>
-  <a class="btn primary" href="#contact">Contact</a>
-  <a class="btn primary" href="#" id="notionLinkTop" target="_blank" rel="noreferrer">Notion page ↗</a>
-</div>
-      <div class="mini-grid">
-        <div class="mini-card">
-          <div class="mini-title">Content</div>
-          <div class="mini-text">Threads, announcements, visuals, narratives.</div>
+        <div class="cta">
+          <a class="btn primary" href="#featured">WORK ↘</a>
+          <a class="btn primary" href="/pow/">Full POW ↗</a>
+          <a class="btn primary" href="/contact/">Contact</a>
         </div>
-        <div class="mini-card">
-          <div class="mini-title">Community Ops</div>
-          <div class="mini-text">Mod systems, onboarding, events, engagement.</div>
+      </section>
+
+      <section class="section" id="intro">
+        <div class="section-head">
+          <h2>About Me</h2>
+          <p>Essential intro.</p>
         </div>
-        <div class="mini-card">
-          <div class="mini-title">Ambassador</div>
-          <div class="mini-text">Brand presence, growth support, execution.</div>
+        <div class="card">
+          <p>
+            I’m Yohan. I work in Web3 as a content + community + social operator. I build clear messaging,
+            run communities, and ship assets that drive attention and participation.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="about" class="section">
-      <div class="section-head">
-        <h2>About</h2>
-        <p>Who am I?</p>
-      </div>
-
-      <div class="card">
-        <p>
-          I’m Yohan. I work in Web3 as a content + community + social operator. I build clear messaging,
-          run communities, and ship assets that drive attention and participation.
-        </p>
-        <div class="tags">
-          <span class="tag">Content</span>
-          <span class="tag">Community</span>
-          <span class="tag">Social</span>
-          <span class="tag">Ambassador</span>
+      <section class="section" id="highlights">
+        <div class="section-head">
+          <h2>Experience Highlights</h2>
+          <p>2–3 “mega projects” only.</p>
         </div>
-      </div>
-    </section>
 
-    <section id="experience" class="section">
-      <div class="section-head">
-        <h2>Experiences</h2>
-        <p>Roles + proofs.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <div class="card-top">
-            <h3>Cicada Finance</h3>
-            <span class="pill">Ambassador</span>
-          </div>
-          <p class="muted">Community presence + content support + execution.</p>
-          <div class="actions">
-            <button class="btn small primary" data-open="cicada">Proof (screenshots)</button>
-            <a class="btn small ghost" href="#" id="notionLinkExp1" target="_blank" rel="noreferrer">Full details</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <h3>Mner Club</h3>
-            <span class="pill">Ambassador</span>
-          </div>
-          <p class="muted">Replace with your second project + role.</p>
-          <div class="actions">
-            <button class="btn small primary" data-open="proj2">Proof (screenshots)</button>
-            <a class="btn small ghost" href="#" id="notionLinkExp2" target="_blank" rel="noreferrer">Read the full story of how I got into Web3 ↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="pow" class="section">
-      <div class="section-head">
-        <h2>Proof of work</h2>
-        <p>Quick scan: click “View screenshots” to open the gallery.</p>
-      </div>
-
-      <div class="grid">
-        <article class="pow-card">
-          <div class="pow-thumb" aria-hidden="true"></div>
-          <div class="pow-body">
-            <div class="pow-title">Cicada — Ambassador role</div>
-            <div class="pow-meta">Category: Ambassador • Type: Screenshot set</div>
-            <div class="pow-actions">
-              <button class="btn small primary" data-open="cicada">View screenshots</button>
-              <a class="btn small ghost" href="#" id="notionLinkPow1" target="_blank" rel="noreferrer">Details (Notion)</a>
+        <div class="grid">
+          <article class="card" style="grid-column: span 6;">
+            <div class="card-top">
+              <h3>Cicada Finance</h3>
+              <span class="pill">Ambassador</span>
             </div>
-          </div>
-        </article>
-
-        <article class="pow-card">
-          <div class="pow-thumb" aria-hidden="true"></div>
-          <div class="pow-body">
-            <div class="pow-title">Thread / announcement (replace)</div>
-            <div class="pow-meta">Category: Content • Type: Link</div>
-            <div class="pow-actions">
-              <a class="btn small primary" href="#" target="_blank" rel="noreferrer">Open proof</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noreferrer">Details (Notion)</a>
+            <p class="muted">One-line impact summary (replace with your real result).</p>
+            <div class="actions">
+              <a class="btn small primary" href="/pow/#cicada">Open proofs</a>
+              <a class="btn small ghost" href="/experience/">Context</a>
             </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="card" style="grid-column: span 6;">
+            <div class="card-top">
+              <h3>Mner Club</h3>
+              <span class="pill">Ambassador</span>
+            </div>
+            <p class="muted">One-line impact summary (replace).</p>
+            <div class="actions">
+              <a class="btn small primary" href="/pow/#mner">Open proofs</a>
+              <a class="btn small ghost" href="/experience/">Context</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="section-head">
+          <h2>Featured Work</h2>
+          <p>Threads, posts, and articles (preview cards).</p>
+        </div>
+
+        <div class="fw-grid" id="featuredGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Lightbox (used on /pow/ but included globally) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" data-lb-close></div>
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="lb-top">
+        <div class="lb-controls">
+          <button class="lb-btn" data-lb-prev aria-label="Previous">‹</button>
+          <button class="lb-btn" data-lb-next aria-label="Next">›</button>
+        </div>
+        <button class="lb-btn lb-close" data-lb-close aria-label="Close">×</button>
       </div>
 
-      <div class="endcap">
-        <p class="muted">Want the full breakdown?</p>
-        <a class="btn primary" href="#" id="notionLinkBottom" target="_blank" rel="noreferrer">Check detailed PoW in Notion ↗</a>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Fast CTA. Recruiters shouldn’t hunt.</p>
-      </div>
-
-      <div class="contact-pills">
-       <a class="pill-btn" href="mailto:youremail@example.com">Email</a>
-       <a class="pill-btn" href="https://x.com/yourhandle" target="_blank" rel="noreferrer">Twitter</a>
-       <a class="pill-btn" href="https://t.me/yourhandle" target="_blank" rel="noreferrer">Telegram</a>
-       <a class="pill-btn ghost" href="#" id="notionLinkContact" target="_blank" rel="noreferrer">Notion</a>
-</div>
-      </div>
-
-      <footer class="footer">
-        <span>© <span id="year"></span> Yohan</span>
-        <span class="muted">Built on GitHub Pages</span>
-      </footer>
-    </section>
-  </main>
-
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modal-backdrop" data-close></div>
-
-  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Proof gallery">
-    <div class="modal-head">
-      <div class="modal-title" id="modalTitle">Proof</div>
-      <button class="icon-btn" data-close aria-label="Close">×</button>
-    </div>
-
-    <!-- THUMB GRID -->
-    <div class="thumb-grid" id="thumbGrid"></div>
-
-    <!-- VIEWER (hidden until a thumb is clicked) -->
-    <div class="viewer" id="viewer" hidden>
-      <button class="viewer-nav prev" type="button" data-prev aria-label="Previous">‹</button>
-      <img class="viewer-img" id="viewerImg" src="" alt="">
-      <button class="viewer-nav next" type="button" data-next aria-label="Next">›</button>
-      <button class="viewer-close" type="button" data-viewer-close aria-label="Close image">×</button>
-    </div>
-
-    <div class="viewer-meta">
-      <span class="muted" id="viewerCounter">0 / 0</span>
-    </div>
-
-    <div class="modal-foot">
-      <a class="btn small ghost" href="#" id="modalNotion" target="_blank" rel="noreferrer">Full details</a>
-      <button class="btn small" type="button" data-close>Back</button>
+      <img class="lb-img" id="lbImg" src="" alt="">
+      <div class="lb-counter" id="lbCounter"></div>
     </div>
   </div>
-</div>
 
   <script src="/assets/script.js"></script>
 </body>
