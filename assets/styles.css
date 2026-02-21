@@ -408,11 +408,11 @@ button.btn.small{
 /* ---------- CUSTOM CURSOR (desktop only) ---------- */
 /* Add more cursor PNGs into assets/cursors/ and map them here */
 @media (hover:hover) and (pointer:fine){
-  /* default for interactive elements */
-  a, button, .btn, .home, .nav-link { cursor: url("assets/cursors/hand.png") 10 4, pointer; }
-
-  /* keep normal text cursor where needed */
+  a, button, .btn, .home, .nav-link {
+    cursor: url("/assets/cursors/hand.png") 10 4, pointer;
+  }
   p, li, .lead, .muted { cursor: text; }
+}
 
   /* optional: add more cursor types by adding classes in HTML later */
   .cursor-hand { cursor: url("assets/cursors/hand.png") 10 4, pointer; }
