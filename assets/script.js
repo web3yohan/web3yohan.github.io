@@ -1,284 +1,213 @@
 // assets/script.js
 
-// --------------------
-// CONFIG (replace these)
-// --------------------
-const NOTION_URL = "https://example.notion.site/your-pow";
-const STORY_URL  = NOTION_URL; // replace later if you make a separate story page
-
-// Project details live here (we’ll reuse this for the gallery-style POW later)
-const PROJECTS = {
-  cicada: {
-    title: "Cicada Finance",
-    role: "Ambassador • Community + content",
-    notion: NOTION_URL,
-    twitter: "https://x.com/yourhandle",
-    docs: "",
-    images: [
-      // "/assets/images/pow/cicada/role-01.webp",
-      // "/assets/images/pow/cicada/role-02.webp",
-    ]
+// --- Featured Work data (edit these) ---
+const FEATURED_WORK = [
+  {
+    kind: "POST",
+    title: "Your thread / post title",
+    desc: "One-line description. Keep it factual.",
+    href: "https://x.com/yourhandle",
+    thumb: "/assets/images/featured/fw-01.webp",
   },
-  proj2: {
-    title: "Project #2",
-    role: "Community / Social",
-    notion: NOTION_URL,
-    twitter: "",
-    docs: "",
-    images: []
-  }
+  {
+    kind: "ARTICLE",
+    title: "Your article title",
+    desc: "Short excerpt about what it covers.",
+    href: "https://example.com",
+    thumb: "/assets/images/featured/fw-02.webp",
+  },
+  {
+    kind: "THREAD",
+    title: "Your long thread title",
+    desc: "Why it matters / what it achieved.",
+    href: "https://x.com/yourhandle",
+    thumb: "/assets/images/featured/fw-03.webp",
+  },
+  {
+    kind: "ARTICLE",
+    title: "Another piece",
+    desc: "Short, skimmable.",
+    href: "https://example.com",
+    thumb: "/assets/images/featured/fw-04.webp",
+  },
+];
+
+// --- Proof image sets for lightbox (edit these if needed) ---
+const PROOFS = {
+  cicada: [
+    "/assets/images/pow/cicada/01.webp",
+    "/assets/images/pow/cicada/02.webp",
+    "/assets/images/pow/cicada/03.webp",
+  ],
+  mner: [
+    "/assets/images/pow/mner/01.webp",
+    "/assets/images/pow/mner/02.webp",
+    "/assets/images/pow/mner/03.webp",
+    "/assets/images/pow/mner/04.webp",
+  ],
 };
 
-// --------------------
-// 1) Footer year + links
-// --------------------
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-[
-  "notionLinkTop","notionLinkExp1","notionLinkExp2","notionLinkPow1","notionLinkBottom",
-  "notionLinkContact","modalNotion"
-].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.href = NOTION_URL;
-});
-
-const storyLink = document.getElementById("storyLink");
-if (storyLink) storyLink.href = STORY_URL;
-
-// --------------------
-// 2) NAV active + sliding underline bar
-// --------------------
-const nav = document.querySelector(".nav");
+// ---------- NAV slider (page routing) ----------
 const menu = document.querySelector(".menu");
-const ink  = document.querySelector(".nav-ink");
+const ink = document.querySelector(".nav-ink");
 const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 
-function getNavH(){ return nav ? nav.getBoundingClientRect().height : 76; }
-
-function setActive(hash){
-  navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === hash));
-  positionInk();
+function normalizePath(p){
+  if (!p) return "/";
+  // Ensure trailing slash for folder routes
+  if (p !== "/" && !p.endsWith("/")) return p + "/";
+  return p;
 }
 
-function positionInk(){
-  if (!ink || !menu) return;
-  const active = navLinks.find(a => a.classList.contains("active")) || navLinks[0];
-  if (!active) return;
+function activeLinkForPath(){
+  const path = normalizePath(window.location.pathname);
 
-  const r = active.getBoundingClientRect();
-  const pr = menu.getBoundingClientRect();
+  // Match exact known routes first
+  const match = navLinks.find(a => normalizePath(new URL(a.href).pathname) === path);
+  if (match) return match;
+
+  // Fallback: if on /pow/... highlight /pow/
+  const starts = navLinks.find(a => path.startsWith(normalizePath(new URL(a.href).pathname)));
+  return starts || navLinks[0];
+}
+
+function positionInkTo(link){
+  if (!ink || !menu || !link) return;
+
+  const linkRect = link.getBoundingClientRect();
+  const menuRect = menu.getBoundingClientRect();
+
+  const padL = parseFloat(getComputedStyle(link).paddingLeft) || 0;
+  const padR = parseFloat(getComputedStyle(link).paddingRight) || 0;
+
+  const x = (linkRect.left - menuRect.left) + padL;
+  const w = Math.max(16, linkRect.width - padL - padR);
+
   ink.style.opacity = "1";
-  ink.style.width = `${Math.max(26, r.width - 18)}px`;
-  ink.style.transform = `translateX(${(r.left - pr.left) + 9}px)`;
+  ink.style.width = `${w}px`;
+  ink.style.transform = `translateX(${x}px)`;
 }
 
-// stable active based on scroll position (updates without clicking)
-let last = "";
-function updateActiveFromScroll(){
-  const offset = getNavH() + 18;
-  let current = navLinks[0]?.getAttribute("href") || "#about";
-
-  for (const a of navLinks){
-    const id = a.getAttribute("href");
-    const el = document.querySelector(id);
-    if (!el) continue;
-    if (el.getBoundingClientRect().top <= offset) current = id;
-  }
-
-  if (current !== last){
-    last = current;
-    setActive(current);
-  }
+function setActiveLink(link){
+  navLinks.forEach(a => a.classList.toggle("active", a === link));
+  positionInkTo(link);
 }
 
-navLinks.forEach(a => a.addEventListener("click", () => {
-  last = a.getAttribute("href");
-  setActive(last);
-}));
+function initNav(){
+  const active = activeLinkForPath();
+  setActiveLink(active);
 
-let ticking = false;
-window.addEventListener("scroll", () => {
-  if (ticking) return;
-  ticking = true;
-  requestAnimationFrame(() => {
-    updateActiveFromScroll();
-    ticking = false;
-  });
-});
+  // Hover behavior (Samad-ish feel)
+  const finePointer = window.matchMedia && window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if (finePointer){
+    navLinks.forEach(a => a.addEventListener("mouseenter", () => positionInkTo(a)));
+    menu?.addEventListener("mouseleave", () => positionInkTo(activeLinkForPath()));
+  }
 
-window.addEventListener("resize", () => positionInk());
-window.addEventListener("load", () => {
-  last = location.hash || "#about";
-  setActive(last);
-  updateActiveFromScroll();
-  positionInk();
-});
+  menu?.addEventListener("scroll", () => positionInkTo(activeLinkForPath()));
+  window.addEventListener("resize", () => positionInkTo(activeLinkForPath()));
+}
 
-// ---- MODAL: grid thumbnails -> full viewer ----
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalNotion = document.getElementById("modalNotion");
+window.addEventListener("load", initNav);
 
-const thumbGrid = document.getElementById("thumbGrid");
-const viewer = document.getElementById("viewer");
-const viewerImg = document.getElementById("viewerImg");
-const viewerCounter = document.getElementById("viewerCounter");
+// ---------- Featured Work render + reveal ----------
+function renderFeatured(){
+  const grid = document.getElementById("featuredGrid");
+  if (!grid) return;
 
-let currentImages = [];
-let currentIndex = 0;
-
-function openModal(key){
-  const p = PROJECTS[key];
-  if (!p || !modal || !modalTitle || !thumbGrid) return;
-
-  currentImages = Array.isArray(p.images) ? p.images : [];
-  currentIndex = 0;
-
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden","false");
-  modalTitle.textContent = `${p.title} — Proof`;
-  if (modalNotion) modalNotion.href = p.notion || NOTION_URL;
-
-  // Build thumb grid
-  if (!currentImages.length){
-    thumbGrid.innerHTML = `<div class="shot placeholder">No screenshots yet for ${key}. Add files under /assets/images/pow/${key}/</div>`;
-  } else {
-    thumbGrid.innerHTML = currentImages.map((src, i) => `
-      <div class="thumb" data-thumb="${i}">
-        <img src="${src}" alt="">
+  grid.innerHTML = FEATURED_WORK.map(item => `
+    <a class="fw-card" href="${item.href}" target="_blank" rel="noreferrer">
+      <div class="fw-thumb">
+        <img src="${item.thumb}" alt="">
       </div>
-    `).join("");
+      <div class="fw-body">
+        <div class="fw-kind">${item.kind}</div>
+        <div class="fw-title">${item.title}</div>
+        <div class="fw-desc">${item.desc}</div>
+      </div>
+    </a>
+  `).join("");
+
+  // Reveal animation
+  const cards = Array.from(grid.querySelectorAll(".fw-card"));
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced){
+    cards.forEach(c => c.classList.add("in"));
+    return;
   }
 
-  // ensure viewer is closed
-  if (viewer) viewer.hidden = true;
-}
-
-function closeModal(){
-  if (!modal) return;
-  modal.classList.remove("show");
-  modal.setAttribute("aria-hidden","true");
-  if (viewer) viewer.hidden = true;
-}
-
-function openViewer(index){
-  if (!viewer || !viewerImg || !currentImages.length) return;
-  currentIndex = index;
-  viewerImg.src = currentImages[currentIndex];
-  viewer.hidden = false;
-  updateCounter();
-  updateNavDisabled();
-}
-
-function closeViewer(){
-  if (!viewer) return;
-  viewer.hidden = true;
-}
-
-function updateCounter(){
-  if (!viewerCounter) return;
-  viewerCounter.textContent = currentImages.length ? `${currentIndex+1} / ${currentImages.length}` : "0 / 0";
-}
-
-function updateNavDisabled(){
-  const prevBtn = document.querySelector("[data-prev]");
-  const nextBtn = document.querySelector("[data-next]");
-  if (prevBtn) prevBtn.disabled = currentIndex === 0;
-  if (nextBtn) nextBtn.disabled = currentIndex === currentImages.length - 1;
-}
-
-function prevImage(){
-  if (currentIndex > 0){
-    currentIndex--;
-    viewerImg.src = currentImages[currentIndex];
-    updateCounter();
-    updateNavDisabled();
-  }
-}
-function nextImage(){
-  if (currentIndex < currentImages.length - 1){
-    currentIndex++;
-    viewerImg.src = currentImages[currentIndex];
-    updateCounter();
-    updateNavDisabled();
-  }
-}
-
-document.addEventListener("click", (e) => {
-  const openBtn = e.target.closest("[data-open]");
-  if (openBtn) openModal(openBtn.getAttribute("data-open"));
-
-  if (e.target.matches("[data-close]") || e.target.closest("[data-close]")) closeModal();
-
-  const thumb = e.target.closest("[data-thumb]");
-  if (thumb){
-    const idx = Number(thumb.getAttribute("data-thumb"));
-    openViewer(idx);
-  }
-
-  if (e.target.closest("[data-viewer-close]")) closeViewer();
-  if (e.target.closest("[data-prev]")) prevImage();
-  if (e.target.closest("[data-next]")) nextImage();
-
-  // click outside image area closes viewer
-  if (viewer && !viewer.hidden && e.target === viewer) closeViewer();
-});
-
-document.addEventListener("keydown", (e) => {
-  if (!modal?.classList.contains("show")) return;
-
-  if (e.key === "Escape"){
-    // if viewer open -> close viewer, else close modal
-    if (viewer && !viewer.hidden) closeViewer();
-    else closeModal();
-  }
-  if (viewer && !viewer.hidden){
-    if (e.key === "ArrowLeft") prevImage();
-    if (e.key === "ArrowRight") nextImage();
-  }
-});
-
-// event delegation
-document.addEventListener("click", (e) => {
-  const openBtn = e.target.closest("[data-open]");
-  if (openBtn) openModal(openBtn.getAttribute("data-open"));
-
-  if (e.target.matches("[data-close]") || e.target.closest("[data-close]")) closeModal();
-
-  if (e.target.closest("[data-prev]")) {
-    if (currentIndex > 0) { currentIndex--; renderViewer(); }
-  }
-  if (e.target.closest("[data-next]")) {
-    if (currentIndex < currentImages.length - 1) { currentIndex++; renderViewer(); }
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (!modal?.classList.contains("show")) return;
-
-  if (e.key === "Escape") closeModal();
-  if (e.key === "ArrowLeft" && currentIndex > 0) { currentIndex--; renderViewer(); }
-  if (e.key === "ArrowRight" && currentIndex < currentImages.length - 1) { currentIndex++; renderViewer(); }
-});
-
-// --------------------
-// 4) Reveal on first scroll-in
-// --------------------
-const revealEls = document.querySelectorAll(".card, .pow-card, .mini-card, .section-head, .endcap");
-revealEls.forEach(el => el.classList.add("reveal"));
-
-const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (!reduced){
   const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(ent=>{
-      if (ent.isIntersecting){
-        ent.target.classList.add("in");
-        obs.unobserve(ent.target);
+    entries.forEach(e=>{
+      if (e.isIntersecting){
+        e.target.classList.add("in");
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => obs.observe(el));
-} else {
-  revealEls.forEach(el => el.classList.add("in"));
+  }, { threshold: 0.12 });
+
+  cards.forEach(c => obs.observe(c));
 }
+
+window.addEventListener("load", renderFeatured);
+
+// ---------- Lightbox (proof images) ----------
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbCounter = document.getElementById("lbCounter");
+const prevBtn = document.querySelector("[data-lb-prev]");
+const nextBtn = document.querySelector("[data-lb-next]");
+
+let currentSet = [];
+let currentIndex = 0;
+
+function openLightbox(setKey, index){
+  currentSet = PROOFS[setKey] || [];
+  currentIndex = Math.max(0, Math.min(index, currentSet.length - 1));
+  if (!currentSet.length || !lightbox || !lbImg) return;
+
+  document.body.classList.add("lb-open");
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+  renderLightbox();
+}
+
+function closeLightbox(){
+  if (!lightbox) return;
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lb-open");
+}
+
+function renderLightbox(){
+  lbImg.src = currentSet[currentIndex];
+  if (lbCounter) lbCounter.textContent = `${currentIndex + 1} / ${currentSet.length}`;
+  if (prevBtn) prevBtn.disabled = currentIndex === 0;
+  if (nextBtn) nextBtn.disabled = currentIndex === currentSet.length - 1;
+}
+function prev(){ if (currentIndex > 0){ currentIndex--; renderLightbox(); } }
+function next(){ if (currentIndex < currentSet.length - 1){ currentIndex++; renderLightbox(); } }
+
+document.addEventListener("click", (e) => {
+  const thumb = e.target.closest("[data-proof][data-index]");
+  if (thumb){
+    openLightbox(thumb.getAttribute("data-proof"), Number(thumb.getAttribute("data-index")));
+    return;
+  }
+  const proofBtn = e.target.closest("[data-open-proof]");
+  if (proofBtn){
+    openLightbox(proofBtn.getAttribute("data-open-proof"), 0);
+    return;
+  }
+
+  if (e.target.matches("[data-lb-close]") || e.target.closest("[data-lb-close]")) closeLightbox();
+  if (e.target.closest("[data-lb-prev]")) prev();
+  if (e.target.closest("[data-lb-next]")) next();
+  if (e.target.classList.contains("lb-backdrop")) closeLightbox();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (!lightbox?.classList.contains("open")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") prev();
+  if (e.key === "ArrowRight") next();
+});
