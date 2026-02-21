@@ -1,14 +1,5 @@
-:root{ --navH: 76px; } /* adjust later if needed */
 
-#page-top{
-  position:absolute;
-  top:0;
-  left:0;
-}
-
-section[id], main[id], div[id]{
-  scroll-margin-top: calc(var(--navH) + 16px);
-
+:root{
   /* Foundation */
   --bg: #09101A;          /* Abyssal Blue */
   --bg2:#111214;          /* Void Black */
@@ -123,29 +114,20 @@ a{ color:inherit; text-decoration:none; }
   -webkit-overflow-scrolling: touch;
   scrollbar-width:none;
 }
-.menu{ position:relative; }
+.menu::-webkit-scrollbar{ display:none; }
+
+/* disable the JS underline bar (it’s what looks broken on mobile) */
+.nav-ink{ display:none !important; }
 
 .nav-link{
   position:relative;
+  font-size:14px;
+  color: rgba(233,236,239,.84);
+  padding: 8px 10px;
+  border-radius: 999px;
+  flex: 0 0 auto;
 }
-
-.nav-link::after{
-  content:"";
-  position:absolute;
-  left:10px;
-  right:10px;
-  bottom:2px;
-  height:2px;
-  border-radius:999px;
-  background: linear-gradient(90deg, rgba(52,164,223,.85), rgba(96,197,241,.75));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .18s ease;
-}
-
-.nav-link.active::after{
-  transform: scaleX(1);
-}
+.nav-link:hover{ color: rgba(233,236,239,.96); }
 
 /* Clean, consistent underline for active state */
 .nav-link.active::after{
@@ -187,10 +169,7 @@ a{ color:inherit; text-decoration:none; }
   line-height: 1.7;
 }
 
-.cta .btn{
-  background: rgba(52,164,223,.18);
-  border-color: rgba(52,164,223,.40);
-}
+.cta{ margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap; }
 
 /* Buttons: force white text on buttons (fixes black text bug) */
 .btn,
@@ -396,10 +375,14 @@ button.btn.small{
 .modal-title{ font-weight:700; font-size: 22px; }
 
 .icon-btn{
-  width: 54px;
-  height: 46px;
-  padding: 0;
-  font-size: 18px;
+  width: 40px; height: 40px;
+  border-radius: 14px;
+  border: 1px solid rgba(69,90,107,.42);
+  background: rgba(17,18,20,.50);
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1;
+  cursor:pointer;
 }
 
 .gallery{
@@ -426,10 +409,11 @@ button.btn.small{
 /* ---------- CUSTOM CURSOR (desktop only) ---------- */
 /* Add more cursor PNGs into assets/cursors/ and map them here */
 @media (hover:hover) and (pointer:fine){
-  a, button, .btn, .home, .nav-link, [data-open]{
-    cursor: url("/assets/cursors/hand.png") 10 4, pointer !important;
-  }
-}
+  /* default for interactive elements */
+  a, button, .btn, .home, .nav-link { cursor: url("assets/cursors/hand.png") 10 4, pointer; }
+
+  /* keep normal text cursor where needed */
+  p, li, .lead, .muted { cursor: text; }
 
   /* optional: add more cursor types by adding classes in HTML later */
   .cursor-hand { cursor: url("assets/cursors/hand.png") 10 4, pointer; }
