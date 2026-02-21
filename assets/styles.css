@@ -168,7 +168,10 @@ a{ color:inherit; text-decoration:none; }
   line-height: 1.7;
 }
 
-.cta{ margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap; }
+.cta .btn{
+  background: rgba(52,164,223,.18);
+  border-color: rgba(52,164,223,.40);
+}
 
 /* Buttons: force white text on buttons (fixes black text bug) */
 .btn,
