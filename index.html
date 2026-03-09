@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yohan's portfolio</title>
+  <meta name="description" content="Yohan's portfolio: Web3 content, community, and social operations." />
+  <link rel="icon" href="/assets/images/avatar-yohan.png" />
+  <img src = "/assets/images/avatar-yohan.png" style="display:none;" onerror="this.onerror=null; this.src='/assets/images/avatar-yohan.webp';">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+
+<body>
+  <div id="site">
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="home" href="#top" aria-label="Back to top">
+         <img class="avatar"
+              src="/assets/images/avatar-yohan.webp"
+              width="34" height="34"
+              alt="Yohan Avatar"
+              onerror="this.onerror=null; this.src='/assets/images/avatar-yohan.png';">
+         </a>
+
+        <nav class="menu" aria-label="Primary">
+          <a class="nav-link" href="/">About Me</a>
+          <a class="nav-link" href="/pow/">Proof of Work</a>
+          <a class="nav-link" href="/experience/">Achievements</a>
+          <a class="nav-link" href="/contact/">Contact</a>
+          <span class="nav-ink" aria-hidden="true"></span>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <p class="kicker">Community builder and content creator</p>
+        <h1 class="title">Experience things beyond the expectations.</h1>
+        <p class="lead">A comprehensive Proof of Work covering ambassador leadership, high-converting social campaigns, and 3D visual production.</p>
+
+        <div class="cta">
+          <a class="btn primary" href="#featured">Experience</a>
+          <a class="btn primary" href="/pow/">Proof of Work</a>
+          <a class="btn primary" href="/contact/">Contact</a>
+        </div>
+      </section>
+
+      <section class="section" id="intro">
+        <div class="section-head">
+          <h2>About Me</h2>
+          <p>Essential intro.</p>
+        </div>
+        <div class="card">
+          <p>
+            I'm Yohan, a full-stack Web3 operator. I bridge the gap between complex tech and mass adoption by owning the entire front-facing brand. I manage high-volume Discords, execute high-quality social media campaigns (from strategic posting to maximum output giveaways), and produce the creative assets to back it up; including 3D product showcases, documentary-style videos, and custom editorial threads.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="highlights">
+        <div class="section-head">
+          <h2>Featured Projects</h2>
+          <p>2–3 Mega Projects only.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card" style="grid-column: span 6;">
+            <div class="card-top">
+              <h3>Cicada Finance</h3>
+              <span class="pill">Ambassador</span>
+            </div>
+            <p class="muted">Translated complex RWA tokenization and Real Yield mechanics into high-fidelity video content and strategic threads/posting to drive organic community growth.</p>
+            <div class="actions">
+              <button class="btn small primary" type="button" data-open-proof="cicada">Open proof</button>
+              <a class="btn small ghost" href="/experience/#cicada">Full Details</a>
+            </div>
+          </article>
+
+          <article class="card" style="grid-column: span 6;">
+            <div class="card-top">
+              <h3>Mner Club</h3>
+              <span class="pill">Ambassador</span>
+            </div>
+            <p class="muted">Elevated the marketing of BTC-backed liquid yield derivatives through premium graphic design and strategic, high-value community contribution.</p>
+            <div class="actions">
+              <button class="btn small primary" type="button" data-open-proof="mner">Open proof</button>
+              <a class="btn small ghost" href="/experience/#mner">Full Details</a>
+            </div>
+          </article>
+
+          <article class="card" style="grid-column: span 6;">
+            <div class="card-top">
+              <h3>GOHOME Token</h3>
+              <span class="pill">Community MOD</span>
+            </div>
+            <p class="muted">Elevated the marketing of BTC-backed liquid yield derivatives through premium graphic design and strategic, high-value community contribution.</p>
+            <div class="actions">
+              <button class="btn small primary" type="button" data-open-proof="gohome">Open proof</button>
+              <a class="btn small ghost" href="/experience/#gohome">Full Details</a>
+            </div>
+          </article>
+
+          <article class="card" style="grid-column: span 6;">
+            <div class="card-top">
+              <h3>Uptopia</h3>
+              <span class="pill">Ambassador</span>
+            </div>
+            <p class="muted">Elevated the marketing of BTC-backed liquid yield derivatives through premium graphic design and strategic, high-value community contribution.</p>
+            <div class="actions">
+              <button class="btn small primary" type="button" data-open-proof="uptopia">Open proof</button>
+              <a class="btn small ghost" href="/experience/#uptopia">Full Details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="section-head">
+          <h2>Featured Work</h2>
+          <p>Threads, posts, and articles (preview cards).</p>
+        </div>
+        <div class="fw-grid" id="featuredGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
