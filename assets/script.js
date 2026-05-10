@@ -1,130 +1,120 @@
 // assets/script.js
 
-// --- Featured Work data (edit these) ---
+// --- Featured Work data ---
 const FEATURED_WORK = [
   {
-    kind: " Long Post",
-    title: "Does your location affects alpha timing on X?",
-    desc: " my research confirms that the location you are based in plays a major role in the game of crypto projects and Web3 Alpha.",
-    href:"https://x.com/web3yohan/status/2001614215849894340",
+    kind: "Long Post",
+    title: "Does your location affect alpha timing on X?",
+    desc: "My research confirms that the location you are based in plays a major role in the game of crypto projects and Web3 Alpha.",
+    href: "https://x.com/web3yohan/status/2001614215849894340",
     thumb: "/assets/images/featured/fw-10.png",
   },
   {
     kind: "Article",
-    title: "Cicada Finance rtUSQ: What “QuantFi” Looks Like When It’s Productized",
+    title: "Cicada Finance rtUSQ: What \"QuantFi\" Looks Like When It's Productized",
     desc: "An article about Cicada Finance's rtUSQ, Quant-Fi product that will change the shape of real yield.",
     href: "https://x.com/web3yohan/status/2012089055446737312",
     thumb: "/assets/images/featured/fw-01.png",
   },
   {
     kind: "Meme",
-    title: "When Cicadians and Mner's meets irl ",
-    desc: "We've been being best buds for eternity. Both server members, @CicadaFinance @mner_club,Truely an great opportunity to enjoy being a really yielder with some more friends who'll keep supporting you no matter what !! 🔥🤝.",
+    title: "When Cicadians and Mner's meet irl",
+    desc: "We've been best buds for eternity. Both server members, @CicadaFinance @mner_club — truly a great opportunity to enjoy being a real yielder with friends who'll keep supporting you no matter what.",
     href: "https://x.com/web3yohan/status/1954562990063157755",
     thumb: "/assets/images/featured/fw-08.png",
   },
-    {
+  {
     kind: "Detailed Post",
     title: "Where does Mner Club's high APY come from?",
-    desc: "Mner Club doesn’t hide behind token emissions or points seasons. It starts in a warehouse full of humming ASICs and ends as a balance that ticks up in your wallet. That gap from real machines to real yield is the entire story.",
+    desc: "Mner Club doesn't hide behind token emissions or points seasons. It starts in a warehouse full of humming ASICs and ends as a balance that ticks up in your wallet.",
     href: "https://x.com/web3yohan/status/1984155004006232314",
     thumb: "/assets/images/featured/fw-04.png",
   },
   {
     kind: "Thread",
     title: "Can you earn Bitcoin mining profits without even mining?",
-    desc: "Mner Club introduces a third path:BTC mining as a composable DeFi primitive. It tokenizes mining income into liquid, yield-bearing assets that plug directly into the rest of DeFi.",
+    desc: "Mner Club introduces a third path: BTC mining as a composable DeFi primitive. It tokenizes mining income into liquid, yield-bearing assets that plug directly into the rest of DeFi.",
     href: "https://x.com/web3yohan/status/2005618665576894861",
     thumb: "/assets/images/featured/fw-02.png",
   },
   {
     kind: "Video Content",
     title: "How to get Union Role in Mner Club Discord (tutorial)",
-    desc: " If you want to the union role in Mner Club discord, this video will show you how to do it in 2 minutes. Super easy and simple step by step guide.",
+    desc: "If you want the union role in Mner Club discord, this video shows you how to do it in 2 minutes — a super easy step-by-step guide.",
     href: "https://x.com/web3yohan/status/2000216097598152979",
     thumb: "/assets/images/featured/fw-03.png",
   },
   {
     kind: "Meme",
-    title: "Black magic in community quiz (mner club)",
-    desc: "While Baron starts quiz , everyone starts doing black magic in order to win the quiz lol That's when @Paceey_1 shows his Sharingan move, wining both quizzes in @mner_club & @CicadaFinance cause Bro is really built different.",
+    title: "Black magic in community quiz (Mner Club)",
+    desc: "While Baron starts the quiz, everyone starts doing black magic to win. That's when @Paceey_1 shows his Sharingan move, winning both quizzes in @mner_club & @CicadaFinance.",
     href: "https://x.com/web3yohan/status/1967212934234603658",
     thumb: "/assets/images/featured/fw-07.png",
   },
   {
-    kind: "Thread",
-    title: "Where does Mner Club's high APY come from?",
-    desc: "Mner Club doesn’t hide behind token emissions or points seasons. It starts in a warehouse full of humming ASICs and ends as a balance that ticks up in your wallet. That gap from real machines to real yield is the entire story.",
-    href: "https://x.com/web3yohan/status/1984155004006232314",
-    thumb: "/assets/images/featured/fw-04.png",
-  },
-  {
     kind: "Video Content",
     title: "Redstone Seoul | KBW",
-    desc: "Team Redstone showed up everywhere that mattered with one clear message: oracles are the backbone of DeFi. In growth of redstone Korean community, this was freaking awesome, cause almost every redstone enthusiast came by to see redstone live in Seoul.",
+    desc: "Team Redstone showed up everywhere that mattered with one clear message: oracles are the backbone of DeFi. Almost every Redstone enthusiast came by to see Redstone live in Seoul.",
+    href: "https://x.com/web3yohan/status/1969709459510645218",
     thumb: "/assets/images/featured/fw-05.png",
   },
   {
     kind: "Post Based Article",
-    title: "Redstone Finance's monthly recap (septemberd,2025)",
-    desc: "Redstone Finance had a busy September, with major product launches, community growth, and ecosystem partnerships. Here’s a recap of the month’s highlights.",
+    title: "Redstone Finance's monthly recap (September 2025)",
+    desc: "Redstone Finance had a busy September, with major product launches, community growth, and ecosystem partnerships. Here's a recap of the month's highlights.",
     href: "https://x.com/web3yohan/status/1969709459510645218",
     thumb: "/assets/images/featured/fw-06.png",
   }
-
 ];
 
-// --- Proof image sets for lightbox (edit these if needed) ---
+// --- Proof image sets for lightbox ---
+// Files in your repo are: 1.png, 2.png (inside each project folder)
 const PROOFS = {
   cicada: [
-    "/assets/images/pow/cicada/01.webp",
-    "/assets/images/pow/cicada/02.webp",
-    "/assets/images/pow/cicada/03.webp",
+    "/assets/images/pow/cicada/1.png",
+    "/assets/images/pow/cicada/2.png",
   ],
   mner: [
-    "/assets/images/pow/mner/01.webp",
-    "/assets/images/pow/mner/02.webp",
-    "/assets/images/pow/mner/03.webp",
-    "/assets/images/pow/mner/04.webp",
+    "/assets/images/pow/mner/1.png",
+    "/assets/images/pow/mner/2.png",
+  ],
+  gohome: [
+    "/assets/images/pow/gohome/1.png",
+    "/assets/images/pow/gohome/2.png",
+  ],
+  uptopia: [
+    "/assets/images/pow/uptopia/1.png",
+    "/assets/images/pow/uptopia/2.png",
   ],
 };
 
-// ---------- NAV slider (page routing) ----------
+// ---------- NAV slider ----------
 const menu = document.querySelector(".menu");
 const ink = document.querySelector(".nav-ink");
 const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 
 function normalizePath(p){
   if (!p) return "/";
-  // Ensure trailing slash for folder routes
   if (p !== "/" && !p.endsWith("/")) return p + "/";
   return p;
 }
 
 function activeLinkForPath(){
   const path = normalizePath(window.location.pathname);
-
-  // Match exact known routes first
   const match = navLinks.find(a => normalizePath(new URL(a.href).pathname) === path);
   if (match) return match;
-
-  // Fallback: if on /pow/... highlight /pow/
   const starts = navLinks.find(a => path.startsWith(normalizePath(new URL(a.href).pathname)));
   return starts || navLinks[0];
 }
 
 function positionInkTo(link){
   if (!ink || !menu || !link) return;
-
   const linkRect = link.getBoundingClientRect();
   const menuRect = menu.getBoundingClientRect();
-
   const padL = parseFloat(getComputedStyle(link).paddingLeft) || 0;
   const padR = parseFloat(getComputedStyle(link).paddingRight) || 0;
-
   const x = (linkRect.left - menuRect.left) + padL;
   const w = Math.max(16, linkRect.width - padL - padR);
-
   ink.style.opacity = "1";
   ink.style.width = `${w}px`;
   ink.style.transform = `translateX(${x}px)`;
@@ -138,14 +128,11 @@ function setActiveLink(link){
 function initNav(){
   const active = activeLinkForPath();
   setActiveLink(active);
-
-  // Hover behavior (Samad-ish feel)
   const finePointer = window.matchMedia && window.matchMedia("(hover:hover) and (pointer:fine)").matches;
   if (finePointer){
     navLinks.forEach(a => a.addEventListener("mouseenter", () => positionInkTo(a)));
     menu?.addEventListener("mouseleave", () => positionInkTo(activeLinkForPath()));
   }
-
   menu?.addEventListener("scroll", () => positionInkTo(activeLinkForPath()));
   window.addEventListener("resize", () => positionInkTo(activeLinkForPath()));
 }
@@ -160,7 +147,7 @@ function renderFeatured(){
   grid.innerHTML = FEATURED_WORK.map(item => `
     <a class="fw-card" href="${item.href}" target="_blank" rel="noreferrer">
       <div class="fw-thumb">
-        <img src="${item.thumb}" alt="">
+        <img src="${item.thumb}" alt="${item.title}" loading="lazy">
       </div>
       <div class="fw-body">
         <div class="fw-kind">${item.kind}</div>
@@ -170,7 +157,6 @@ function renderFeatured(){
     </a>
   `).join("");
 
-  // Reveal animation
   const cards = Array.from(grid.querySelectorAll(".fw-card"));
   const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduced){
@@ -192,7 +178,7 @@ function renderFeatured(){
 
 window.addEventListener("load", renderFeatured);
 
-// ---------- Lightbox (proof images) ----------
+// ---------- Lightbox ----------
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lbImg");
 const lbCounter = document.getElementById("lbCounter");
@@ -206,7 +192,6 @@ function openLightbox(setKey, index){
   currentSet = PROOFS[setKey] || [];
   currentIndex = Math.max(0, Math.min(index, currentSet.length - 1));
   if (!currentSet.length || !lightbox || !lbImg) return;
-
   document.body.classList.add("lb-open");
   lightbox.classList.add("open");
   lightbox.setAttribute("aria-hidden", "false");
@@ -226,6 +211,7 @@ function renderLightbox(){
   if (prevBtn) prevBtn.disabled = currentIndex === 0;
   if (nextBtn) nextBtn.disabled = currentIndex === currentSet.length - 1;
 }
+
 function prev(){ if (currentIndex > 0){ currentIndex--; renderLightbox(); } }
 function next(){ if (currentIndex < currentSet.length - 1){ currentIndex++; renderLightbox(); } }
 
@@ -240,7 +226,6 @@ document.addEventListener("click", (e) => {
     openLightbox(proofBtn.getAttribute("data-open-proof"), 0);
     return;
   }
-
   if (e.target.matches("[data-lb-close]") || e.target.closest("[data-lb-close]")) closeLightbox();
   if (e.target.closest("[data-lb-prev]")) prev();
   if (e.target.closest("[data-lb-next]")) next();
@@ -254,12 +239,13 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") next();
 });
 
-// ---------- Scroll reveal (top->down) ----------
-(function initScrollReveal(){
+// ---------- Scroll reveal ----------
+window.addEventListener("load", function initScrollReveal(){
   const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduced) return;
 
-  const targets = document.querySelectorAll(".hero p, .hero h1, .cta, .section-head, .card, .fw-card, .thumb");
+  // Run after renderFeatured() has injected the .fw-card elements
+  const targets = document.querySelectorAll(".hero p, .hero h1, .cta, .section-head, .card, .thumb");
   targets.forEach((el, i) => {
     el.classList.add("reveal");
     el.style.transitionDelay = `${Math.min(0.18, (i % 6) * 0.03)}s`;
@@ -275,5 +261,4 @@ document.addEventListener("keydown", (e) => {
   }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
 
   targets.forEach(el => obs.observe(el));
-})();
-
+});
