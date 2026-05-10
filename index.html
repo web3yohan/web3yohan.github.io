@@ -6,7 +6,6 @@
   <title>Yohan's portfolio</title>
   <meta name="description" content="Yohan's portfolio: Web3 content, community, and social operations." />
   <link rel="icon" href="/assets/images/avatar-yohan.png" />
-  <img src = "/assets/images/avatar-yohan.png" style="display:none;" onerror="this.onerror=null; this.src='/assets/images/avatar-yohan.webp';">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,13 +16,12 @@
   <div id="site">
     <header class="nav">
       <div class="nav-inner">
-        <a class="home" href="#top" aria-label="Back to top">
-         <img class="avatar"
-              src="/assets/images/avatar-yohan.webp"
-              width="34" height="34"
-              alt="Yohan Avatar"
-              onerror="this.onerror=null; this.src='/assets/images/avatar-yohan.png';">
-         </a>
+        <a class="home" href="/" aria-label="Go to homepage">
+          <img class="avatar"
+               src="/assets/images/avatar-yohan.png"
+               width="34" height="34"
+               alt="Yohan Avatar">
+        </a>
 
         <nav class="menu" aria-label="Primary">
           <a class="nav-link" href="/">About Me</a>
@@ -51,7 +49,6 @@
       <section class="section" id="intro">
         <div class="section-head">
           <h2>About Me</h2>
-          <p>Essential intro.</p>
         </div>
         <div class="card">
           <p>
@@ -63,7 +60,6 @@
       <section class="section" id="highlights">
         <div class="section-head">
           <h2>Featured Projects</h2>
-          <p>2–3 Mega Projects only.</p>
         </div>
 
         <div class="grid">
@@ -72,7 +68,7 @@
               <h3>Cicada Finance</h3>
               <span class="pill">Ambassador</span>
             </div>
-            <p class="muted">Translated complex RWA tokenization and Real Yield mechanics into high-fidelity video content and strategic threads/posting to drive organic community growth.</p>
+            <p class="muted">Translated complex RWA tokenization and Real Yield mechanics into high-fidelity video content and strategic threads to drive organic community growth.</p>
             <div class="actions">
               <button class="btn small primary" type="button" data-open-proof="cicada">Open proof</button>
               <a class="btn small ghost" href="/experience/#cicada">Full Details</a>
@@ -96,7 +92,7 @@
               <h3>GOHOME Token</h3>
               <span class="pill">Community MOD</span>
             </div>
-            <p class="muted">Elevated the marketing of BTC-backed liquid yield derivatives through premium graphic design and strategic, high-value community contribution.</p>
+            <p class="muted">Moderated and grew the GOHOME community by maintaining Discord engagement, enforcing community guidelines, and supporting new members through onboarding.</p>
             <div class="actions">
               <button class="btn small primary" type="button" data-open-proof="gohome">Open proof</button>
               <a class="btn small ghost" href="/experience/#gohome">Full Details</a>
@@ -108,7 +104,7 @@
               <h3>Uptopia</h3>
               <span class="pill">Ambassador</span>
             </div>
-            <p class="muted">Elevated the marketing of BTC-backed liquid yield derivatives through premium graphic design and strategic, high-value community contribution.</p>
+            <p class="muted">Represented the Uptopia brand through community outreach, content creation, and ambassador-driven campaigns that expanded project awareness.</p>
             <div class="actions">
               <button class="btn small primary" type="button" data-open-proof="uptopia">Open proof</button>
               <a class="btn small ghost" href="/experience/#uptopia">Full Details</a>
@@ -120,11 +116,27 @@
       <section class="section" id="featured">
         <div class="section-head">
           <h2>Featured Work</h2>
-          <p>Threads, posts, and articles (preview cards).</p>
+          <p>Threads, posts, and articles.</p>
         </div>
         <div class="fw-grid" id="featuredGrid"></div>
       </section>
     </main>
+  </div>
+
+  <!-- LIGHTBOX (was completely missing before) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Proof of work images" aria-hidden="true">
+    <div class="lb-backdrop"></div>
+    <div class="lb-panel">
+      <div class="lb-top">
+        <span class="lb-counter" id="lbCounter">1 / 1</span>
+        <div class="lb-controls">
+          <button class="lb-btn" data-lb-prev aria-label="Previous image">&#8592;</button>
+          <button class="lb-btn" data-lb-next aria-label="Next image">&#8594;</button>
+          <button class="lb-btn lb-close" data-lb-close aria-label="Close lightbox">&#x2715;</button>
+        </div>
+      </div>
+      <img class="lb-img" id="lbImg" src="" alt="Proof of work image" />
+    </div>
   </div>
 
   <script src="/assets/script.js"></script>
