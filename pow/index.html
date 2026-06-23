@@ -3,93 +3,293 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yohan — Full POW</title>
-  <meta name="description" content="Detailed proof of work by project." />
+  <title>Yohan — Work</title>
+  <meta name="description" content="Yohan's full proof of work across Web3 projects." />
+  <link rel="icon" href="/assets/images/avatar-yohan-web.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css" />
 </head>
-<body>
-  <div id="site">
-    <header class="nav">
-      <div class="nav-inner">
-        <a class="home" href="/" aria-label="Home">
-          <span class="home-fallback-text" style="display:block;">Y</span>
-        </a>
+<body class="page page-work">
 
-        <nav class="menu" aria-label="Primary">
-          <a class="nav-link" href="/">About Me</a>
-          <a class="nav-link" href="/experience/">Experiences</a>
-          <a class="nav-link" href="/pow/">Full POW</a>
-          <a class="nav-link" href="/contact/">Contact</a>
-          <span class="nav-ink" aria-hidden="true"></span>
-        </nav>
+  <header class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-logo" href="/" aria-label="Home">
+        <img src="/assets/images/avatar-yohan-2.png" alt="Yohan" width="32" height="32"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="nav-logo-fallback" style="display:none">YH</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="/pow">Work</a>
+        <a class="nav-link" href="/contact">Contact</a>
       </div>
-    </header>
+      <!-- "Hire me" opens modal, not a page redirect -->
+      <button class="nav-cta" id="hireMeBtn" type="button">Hire me</button>
+    </nav>
+  </header>
 
-    <main class="container">
-      <section class="hero">
-        <p class="kicker">Full Proof of Work</p>
-        <h1 class="title">All projects, in one place.</h1>
-        <p class="lead">Click any thumbnail to open the lightbox (blur + smooth transitions).</p>
-      </section>
+  <main>
 
-      <section class="section" id="cicada">
-        <div class="section-head">
-          <h2>Cicada Finance</h2>
-          <p>Ambassador • 3 proofs</p>
+          <!--Hero-->
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-tag">Proof of Work</span>
+        <h1 class="page-title">Everything I've<br><em>shipped.</em></h1>
+        <p class="page-sub">Full documentation of ambassador roles, content output, and community contributions.</p>
+        <div class="scroll-cue" aria-hidden="true">
+          <span class="scroll-label">scroll</span>
+          <span class="scroll-line"></span>
         </div>
+      </div>
+    </section>
 
-        <div class="grid">
-          <div class="card" style="grid-column: span 12;">
-            <div class="actions">
-              <button class="btn small primary" data-open-proof="cicada">Open first proof</button>
+          <!--Projects POW-->
+
+    <section class="section" id="cicada">
+      <div class="container">
+        <div class="work-block">
+          <div class="work-header">
+            <div>
+              <span class="work-role-tag">Ambassador</span>
+              <h2 class="work-title">Cicada Finance</h2>
             </div>
-            <div class="actions" style="margin-top:12px;">
-              <div class="thumb" data-proof="cicada" data-index="0"><img src="/assets/images/pow/cicada/01.webp" alt=""></div>
-              <div class="thumb" data-proof="cicada" data-index="1"><img src="/assets/images/pow/cicada/02.webp" alt=""></div>
-              <div class="thumb" data-proof="cicada" data-index="2"><img src="/assets/images/pow/cicada/03.webp" alt=""></div>
+            <div class="work-side">
+              <span class="work-period">Jan 2026-Now</span>
+              <div class="work-tags" aria-label="Project tags">
+                <span class="skill-tag">Video Production</span>
+                <span class="skill-tag tag-more">Quality Contents</span>
+                <span class="skill-tag tag-more">Community</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <div class="work-link-icons" aria-label="Project links">
+                <a class="work-icon-link" href="https://cicada.finance/" target="_blank" rel="noreferrer" aria-label="Cicada website">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm6.92 8h-3.08a13.9 13.9 0 0 0-1.14-5 7.03 7.03 0 0 1 4.22 5ZM12 4.88c.83 1.01 1.9 3.16 2.14 6.12H9.86C10.1 8.04 11.17 5.89 12 4.88ZM5.08 13h3.08c.12 1.82.54 3.5 1.14 5a7.03 7.03 0 0 1-4.22-5Zm3.08-2H5.08a7.03 7.03 0 0 1 4.22-5c-.6 1.5-1.02 3.18-1.14 5Zm3.84 8.12c-.83-1.01-1.9-3.16-2.14-6.12h4.28c-.24 2.96-1.31 5.11-2.14 6.12ZM14.7 18c.6-1.5 1.02-3.18 1.14-5h3.08a7.03 7.03 0 0 1-4.22 5Z"/></svg>
+                </a>
+                <a class="work-icon-link work-icon-x" href="https://x.com/cicadafinance" target="_blank" rel="noreferrer" aria-label="Cicada on X">𝕏</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="mner">
-        <div class="section-head">
-          <h2>Mner Club</h2>
-          <p>Ambassador • 4 proofs</p>
-        </div>
-
-        <div class="grid">
-          <div class="card" style="grid-column: span 12;">
-            <div class="actions">
-              <button class="btn small primary" data-open-proof="mner">Open first proof</button>
-            </div>
-            <div class="actions" style="margin-top:12px;">
-              <div class="thumb" data-proof="mner" data-index="0"><img src="/assets/images/pow/mner/01.webp" alt=""></div>
-              <div class="thumb" data-proof="mner" data-index="1"><img src="/assets/images/pow/mner/02.webp" alt=""></div>
-              <div class="thumb" data-proof="mner" data-index="2"><img src="/assets/images/pow/mner/03.webp" alt=""></div>
-              <div class="thumb" data-proof="mner" data-index="3"><img src="/assets/images/pow/mner/04.webp" alt=""></div>
-            </div>
+          <p class="work-desc">
+            Produced high-fidelity explainer videos, editorial detailed posts and articles, and community engagement content around Cicada Finance's RWA tokenization and Real Yield product suite. Drove measurable growth in Discord engagement and Twitter reach.
+          </p>
+          <div class="work-proof-grid">
+            <button class="proof-thumb" data-open-proof="cicada" data-index="0">
+              <img src="/assets/images/pow/cicada/1.png" alt="Cicada proof 1" />
+              <span class="proof-label">View proof</span>
+            </button>
+            <button class="proof-thumb" data-open-proof="cicada" data-index="1">
+              <img src="/assets/images/pow/cicada/2.png" alt="Cicada proof 2" />
+              <span class="proof-label">View proof</span>
+            </button>
           </div>
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
+
+        <section class="section" id="magverse">
+      <div class="container">
+        <div class="work-block">
+          <div class="work-header">
+            <div>
+              <span class="work-role-tag">Ambassador</span>
+              <h2 class="work-title">MagverseAI</h2>
+            </div>
+            <div class="work-side">
+              <span class="work-period">March 2026-Now</span>
+              <div class="work-tags" aria-label="Project tags">
+                <span class="skill-tag">Video Production</span>
+                <span class="skill-tag tag-more">Quality Contents</span>
+                <span class="skill-tag tag-more">Community</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <div class="work-link-icons" aria-label="Project links">
+                <a class="work-icon-link" href="https://console.magverse.io" target="_blank" rel="noreferrer" aria-label="MagverseAI website">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm6.92 8h-3.08a13.9 13.9 0 0 0-1.14-5 7.03 7.03 0 0 1 4.22 5ZM12 4.88c.83 1.01 1.9 3.16 2.14 6.12H9.86C10.1 8.04 11.17 5.89 12 4.88ZM5.08 13h3.08c.12 1.82.54 3.5 1.14 5a7.03 7.03 0 0 1-4.22-5Zm3.08-2H5.08a7.03 7.03 0 0 1 4.22-5c-.6 1.5-1.02 3.18-1.14 5Zm3.84 8.12c-.83-1.01-1.9-3.16-2.14-6.12h4.28c-.24 2.96-1.31 5.11-2.14 6.12ZM14.7 18c.6-1.5 1.02-3.18 1.14-5h3.08a7.03 7.03 0 0 1-4.22 5Z"/></svg>
+                </a>
+                <a class="work-icon-link work-icon-x" href="https://x.com/MagVerse_AI" target="_blank" rel="noreferrer" aria-label="MagverseAI on X">𝕏</a>
+              </div>
+            </div>
+          </div>
+          <p class="work-desc">
+            Produced high-fidelity explainer videos, editorial detailed posts and articles, and community engagement content around Cicada Finance's RWA tokenization and Real Yield product suite. Drove measurable growth in Discord engagement and Twitter reach.
+          </p>
+          <div class="work-proof-grid">
+            <button class="proof-thumb" data-open-proof="magverse" data-index="0">
+              <img src="/assets/images/pow/magverse/1.png" alt="MagverseAI proof 1" />
+              <span class="proof-label">View proof</span>
+            </button>
+            <button class="proof-thumb" data-open-proof="magverse" data-index="1">
+              <img src="/assets/images/pow/magverse/2.png" alt="MagverseAI proof 2" />
+              <span class="proof-label">View proof</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mner">
+      <div class="container">
+        <div class="work-block">
+          <div class="work-header">
+            <div>
+              <span class="work-role-tag">Ambassador</span>
+              <h2 class="work-title">Mner Club</h2>
+            </div>
+            <div class="work-side">
+              <span class="work-period">Sept 2025-Now</span>
+              <div class="work-tags" aria-label="Project tags">
+                <span class="skill-tag">Video Production</span>
+                <span class="skill-tag tag-more">Quality Contents</span>
+                <span class="skill-tag tag-more">Community</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <div class="work-link-icons" aria-label="Project links">
+                <a class="work-icon-link" href="https://mner.club/" target="_blank" rel="noreferrer" aria-label="Mner Club website">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm6.92 8h-3.08a13.9 13.9 0 0 0-1.14-5 7.03 7.03 0 0 1 4.22 5ZM12 4.88c.83 1.01 1.9 3.16 2.14 6.12H9.86C10.1 8.04 11.17 5.89 12 4.88ZM5.08 13h3.08c.12 1.82.54 3.5 1.14 5a7.03 7.03 0 0 1-4.22-5Zm3.08-2H5.08a7.03 7.03 0 0 1 4.22-5c-.6 1.5-1.02 3.18-1.14 5Zm3.84 8.12c-.83-1.01-1.9-3.16-2.14-6.12h4.28c-.24 2.96-1.31 5.11-2.14 6.12ZM14.7 18c.6-1.5 1.02-3.18 1.14-5h3.08a7.03 7.03 0 0 1-4.22 5Z"/></svg>
+                </a>
+                <a class="work-icon-link work-icon-x" href="https://x.com/mner_club" target="_blank" rel="noreferrer" aria-label="Mner Club on X">𝕏</a>
+              </div>
+            </div>
+          </div>
+          <p class="work-desc">
+            Elevated BTC-backed liquid yield derivatives through premium graphic design and strategic social content. Produced educational threads explaining BTC mining as a DeFi primitive and grew community presence through consistent, high-quality output.
+          </p>
+          <div class="work-proof-grid">
+            <button class="proof-thumb" data-open-proof="mner" data-index="0">
+              <img src="/assets/images/pow/mner/1.png" alt="Mner proof 1" />
+              <span class="proof-label">View proof</span>
+            </button>
+            <button class="proof-thumb" data-open-proof="mner" data-index="1">
+              <img src="/assets/images/pow/mner/2.png" alt="Mner proof 2" />
+              <span class="proof-label">View proof</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gohome">
+      <div class="container">
+        <div class="work-block">
+          <div class="work-header">
+            <div>
+              <span class="work-role-tag">Community MOD</span>
+              <h2 class="work-title">GOHOME Token</h2>
+            </div>
+            <div class="work-side">
+              <span class="work-period">Dec 2025-Now</span>
+              <div class="work-tags" aria-label="Project tags">
+                <span class="skill-tag">Moderation</span>
+                <span class="skill-tag tag-more">Onboarding</span>
+                <span class="skill-tag tag-more">Hosting events</span>
+                <span class="skill-tag tag-more">Discord & Telegram</span>
+                <span class="tag-overflow">+3</span>
+              </div>
+              <div class="work-link-icons" aria-label="Project links">
+                <a class="work-icon-link" href="https://gohometoken.com/" target="_blank" rel="noreferrer" aria-label="GOHOME website">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm6.92 8h-3.08a13.9 13.9 0 0 0-1.14-5 7.03 7.03 0 0 1 4.22 5ZM12 4.88c.83 1.01 1.9 3.16 2.14 6.12H9.86C10.1 8.04 11.17 5.89 12 4.88ZM5.08 13h3.08c.12 1.82.54 3.5 1.14 5a7.03 7.03 0 0 1-4.22-5Zm3.08-2H5.08a7.03 7.03 0 0 1 4.22-5c-.6 1.5-1.02 3.18-1.14 5Zm3.84 8.12c-.83-1.01-1.9-3.16-2.14-6.12h4.28c-.24 2.96-1.31 5.11-2.14 6.12ZM14.7 18c.6-1.5 1.02-3.18 1.14-5h3.08a7.03 7.03 0 0 1-4.22 5Z"/></svg>
+                </a>
+                <a class="work-icon-link work-icon-x" href="https://x.com/GoHome_Token" target="_blank" rel="noreferrer" aria-label="GOHOME on X">𝕏</a>
+              </div>
+            </div>
+          </div>
+          <p class="work-desc">
+            Maintained Discord engagement, enforced community guidelines, and supported new members through onboarding. Kept the community active and healthy during the project's growth phase.
+          </p>
+          <div class="work-proof-grid">
+            <button class="proof-thumb" data-open-proof="gohome" data-index="0">
+              <img src="/assets/images/pow/gohome/1.png" alt="GOHOME proof 1" />
+              <span class="proof-label">View proof</span>
+            </button>
+            <button class="proof-thumb" data-open-proof="gohome" data-index="1">
+              <img src="/assets/images/pow/gohome/2.png" alt="GOHOME proof 2" />
+              <span class="proof-label">View proof</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="uptopia">
+      <div class="container">
+        <div class="work-block">
+          <div class="work-header">
+            <div>
+              <span class="work-role-tag">Ambassador</span>
+              <h2 class="work-title">Uptopia</h2>
+            </div>
+            <div class="work-side">
+              <span class="work-period">Nov 2025-Feb 2026</span>
+              <div class="work-tags" aria-label="Project tags">
+                <span class="skill-tag">Outreach</span>
+                <span class="skill-tag tag-more">Content Creation</span>
+                <span class="skill-tag tag-more">Community Engagements</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <div class="work-link-icons" aria-label="Project links">
+                <a class="work-icon-link" href="https://uptopia.xyz/" target="_blank" rel="noreferrer" aria-label="Uptopia website">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm6.92 8h-3.08a13.9 13.9 0 0 0-1.14-5 7.03 7.03 0 0 1 4.22 5ZM12 4.88c.83 1.01 1.9 3.16 2.14 6.12H9.86C10.1 8.04 11.17 5.89 12 4.88ZM5.08 13h3.08c.12 1.82.54 3.5 1.14 5a7.03 7.03 0 0 1-4.22-5Zm3.08-2H5.08a7.03 7.03 0 0 1 4.22-5c-.6 1.5-1.02 3.18-1.14 5Zm3.84 8.12c-.83-1.01-1.9-3.16-2.14-6.12h4.28c-.24 2.96-1.31 5.11-2.14 6.12ZM14.7 18c.6-1.5 1.02-3.18 1.14-5h3.08a7.03 7.03 0 0 1-4.22 5Z"/></svg>
+                </a>
+                <a class="work-icon-link work-icon-x" href="https://x.com/uptopiaxyz" target="_blank" rel="noreferrer" aria-label="Uptopia on X">𝕏</a>
+              </div>
+            </div>
+          </div>
+          <p class="work-desc">
+            Represented the Uptopia brand through community outreach, content creation, and ambassador-driven campaigns that expanded project awareness across Web3 Twitter and Discord.
+          </p>
+          <div class="work-proof-grid">
+            <button class="proof-thumb" data-open-proof="uptopia" data-index="0">
+              <img src="/assets/images/pow/uptopia/1.png" alt="Uptopia proof 1" />
+              <span class="proof-label">View proof</span>
+            </button>
+            <button class="proof-thumb" data-open-proof="uptopia" data-index="1">
+              <img src="/assets/images/pow/uptopia/2.png" alt="Uptopia proof 2" />
+              <span class="proof-label">View proof</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section content-vault" id="content-vault">
+      <div class="container">
+        <div class="projects-head">
+          <span class="section-tag">Content Vault</span>
+          <span class="content-vault-note">Bottom section reserved for your original content and videos.</span>
+        </div>
+        <div class="content-grid">
+          <article class="content-card">
+            <div class="content-card-head">
+              <h3>Feature Video Slot</h3>
+              <span class="content-type">Video</span>
+            </div>
+            <p>Use this card pattern for short-form videos, educational explainers, or campaign breakdowns.</p>
+            <div class="content-actions">
+              <a class="btn-brutalist" href="#" aria-label="Watch feature content">Watch</a>
+              <a class="btn-ghost" href="#" aria-label="Read related thread">Thread</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lb-backdrop" data-lb-close></div>
-    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <div class="lb-top">
-        <div class="lb-controls">
-          <button class="lb-btn" data-lb-prev aria-label="Previous">‹</button>
-          <button class="lb-btn" data-lb-next aria-label="Next">›</button>
+    <div class="lb-backdrop"></div>
+    <div class="lb-panel">
+      <div class="lb-bar">
+        <span id="lbCounter" class="lb-counter">1 / 1</span>
+        <div class="lb-btns">
+          <button data-lb-prev>←</button>
+          <button data-lb-next>→</button>
+          <button data-lb-close>✕</button>
         </div>
-        <button class="lb-btn lb-close" data-lb-close aria-label="Close">×</button>
       </div>
-      <img class="lb-img" id="lbImg" src="" alt="">
-      <div class="lb-counter" id="lbCounter"></div>
+      <img id="lbImg" class="lb-img" src="" alt="" />
     </div>
   </div>
 

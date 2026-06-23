@@ -3,120 +3,220 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yohan</title>
-  <meta name="description" content="Web3 proof of work: content, community, social ops." />
-
+  <title>Yohan — Web3 Operator</title>
+  <meta name="description" content="Yohan. Web3 content creator, community builder, and social operator." />
+  <link rel="icon" href="/assets/images/avatar-yohan-web.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css" />
 </head>
+<body class="page page-home">
 
-<body>
-  <div id="site">
-    <header class="nav">
-      <div class="nav-inner">
-        <a class="home" href="/" aria-label="Home">
-          <img class="avatar" src="/assets/images/avatar.png" alt=""
-               onerror="this.style.display='none'; this.parentElement.classList.add('home-fallback');">
-          <span class="home-fallback-text">Y</span>
-        </a>
-
-        <nav class="menu" aria-label="Primary">
-          <a class="nav-link" href="/">About Me</a>
-          <a class="nav-link" href="/experience/">Experiences</a>
-          <a class="nav-link" href="/pow/">Full POW</a>
-          <a class="nav-link" href="/contact/">Contact</a>
-          <span class="nav-ink" aria-hidden="true"></span>
-        </nav>
+  <!-- NAV -->
+  <header class="nav-wrap">
+    <nav class="nav-pill">
+      <a class="nav-logo" href="/" aria-label="Home">
+        <img src="/assets/images/avatar-yohan-2.png" alt="Yohan" width="32" height="32"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="nav-logo-fallback" style="display:none">YH</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="/">Home</a>
+        <a class="nav-link" href="/pow">Work</a>
+        <a class="nav-link" href="/contact">Contact</a>
       </div>
-    </header>
+      <!-- "Hire me" opens modal, not a page redirect -->
+      <button class="nav-cta" id="hireMeBtn" type="button">Hire me</button>
+    </nav>
+  </header>
 
-    <main class="container">
-      <section class="hero">
-        <p class="kicker">Content • Community • Social</p>
-        <h1 class="title">Experience things beyond the expectations.</h1>
-        <p class="lead">Intro + highlights. Full proof library lives on the dedicated Full POW page.</p>
+  <main>
 
-        <div class="cta">
-          <a class="btn primary" href="#featured">WORK ↘</a>
-          <a class="btn primary" href="/pow/">Full POW ↗</a>
-          <a class="btn primary" href="/contact/">Contact</a>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Web3 Operator · Content Creator · Community Management</p>
+        <h1 class="hero-name">Yohan.</h1>
+        <p class="hero-line">I make Web3 projects impossible to ignore.</p>
+        <div class="scroll-cue" aria-hidden="true">
+          <span class="scroll-label">scroll</span>
+          <span class="scroll-line"></span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="intro">
-        <div class="section-head">
-          <h2>About Me</h2>
-          <p>Essential intro.</p>
-        </div>
-        <div class="card">
-          <p>
-            I’m Yohan. I work in Web3 as a content + community + social operator. I build clear messaging,
-            run communities, and ship assets that drive attention and participation.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="highlights">
-        <div class="section-head">
-          <h2>Experience Highlights</h2>
-          <p>2–3 “mega projects” only.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card" style="grid-column: span 6;">
-            <div class="card-top">
-              <h3>Cicada Finance</h3>
-              <span class="pill">Ambassador</span>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-left">
+            <span class="section-tag">About</span>
+            <h2 class="section-heading">Full-stack<br><em>Web3 operator.</em></h2>
+          </div>
+          <div class="about-right">
+            <p class="about-body">
+              I bridge complex blockchain tech and mass adoption — owning the entire front-facing brand. Discord management, high-conversion social campaigns, 3D visual production, documentary-style video, and editorial threads. I don't just create content. I build credibility for protocols.
+            </p>
+            <div class="stat-row">
+              <div class="stat">
+                <span class="stat-num">4+</span>
+                <span class="stat-label">Protocols</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">100+</span>
+                <span class="stat-label">Pieces of content</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">3+</span>
+                <span class="stat-label">Years in Web3</span>
+              </div>
             </div>
-            <p class="muted">One-line impact summary (replace with your real result).</p>
-            <div class="actions">
-              <a class="btn small primary" href="/pow/#cicada">Open proofs</a>
-              <a class="btn small ghost" href="/experience/">Context</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="projects-head">
+          <span class="section-tag">Projects</span>
+          <a class="btn-ghost" href="/pow/">View all work →</a>
+        </div>
+
+        <div class="project-list">
+
+          <article class="project-card" data-index="0">
+            <div class="project-meta">
+              <span class="project-tag">Ambassador</span>
+              <span class="project-year">Jan 2026-Now</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Cicada Finance</h3>
+              <p class="project-desc">Translated RWA tokenization and Real Yield mechanics into high-fidelity video content and strategic threads. Drove organic community growth across Discord and Twitter.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-skills project-tags">
+                <span class="skill-tag">Videos Production</span>
+                <span class="skill-tag tag-more">Quality Contents</span>
+                <span class="skill-tag tag-more">Community</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <a class="btn-brutalist" href="/pow/#cicada">View work →</a>
             </div>
           </article>
 
-          <article class="card" style="grid-column: span 6;">
-            <div class="card-top">
-              <h3>Mner Club</h3>
-              <span class="pill">Ambassador</span>
+           <article class="project-card" data-index="0">
+            <div class="project-meta">
+              <span class="project-tag">Ambassador</span>
+              <span class="project-year">March 2026-Now</span>
             </div>
-            <p class="muted">One-line impact summary (replace).</p>
-            <div class="actions">
-              <a class="btn small primary" href="/pow/#mner">Open proofs</a>
-              <a class="btn small ghost" href="/experience/">Context</a>
+            <div class="project-body">
+              <h3 class="project-name">MagverseAI</h3>
+              <p class="project-desc">Produced high-fidelity video content designed to transition Web2 creators into Web3 infrastructure. Communicated the platform’s core thesis—transparent growth, AI-assisted matching, and anti-bot mechanics.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-skills project-tags">
+                <span class="skill-tag">Video Production</span>
+                <span class="skill-tag tag-more">Quality Contents</span>
+                <span class="skill-tag tag-more">Community</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <a class="btn-brutalist" href="/pow/#magverse">View work →</a>
             </div>
           </article>
+
+          <article class="project-card" data-index="1">
+            <div class="project-meta">
+              <span class="project-tag">Ambassador</span>
+              <span class="project-year">Sept 2025-Now</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Mner Club</h3>
+              <p class="project-desc">Elevated BTC-backed liquid yield derivatives through premium graphic design and high-value community contributions. Built the brand's social presence from the ground up.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-skills project-tags">
+                <span class="skill-tag">Videos</span>
+                <span class="skill-tag tag-more">Threads</span>
+                <span class="skill-tag tag-more">Community</span>
+                <span class="tag-overflow">+2</span>
+              </div>
+              <a class="btn-brutalist" href="/pow/#mner">View work →</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="2">
+            <div class="project-meta">
+              <span class="project-tag">Community MOD</span>
+              <span class="project-year">Nov 2025-Now</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">GOHOME Token</h3>
+              <p class="project-desc">Moderated and grew the GOHOME community — maintaining Discord engagement, enforcing guidelinesa, hosting events, and supporting new members through onboarding flows.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-skills project-tags">
+             <span class="skill-tag">Moderation</span>
+             <span class="skill-tag tag-more">Onboarding</span>
+             <span class="skill-tag tag-more">Hosting events</span>
+             <span class="skill-tag tag-more">Discord & Telegram</span>
+             <span class="tag-overflow">+3</span>
+              </div>
+              <a class="btn-brutalist" href="/pow/#gohome">View work →</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="3">
+            <div class="project-meta">
+              <span class="project-tag">Ambassador</span>
+              <span class="project-year">Nov 2025-Feb 2026</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Uptopia</h3>
+              <p class="project-desc">Represented the Uptopia brand through community outreach, content creation, and ambassador-driven campaigns that expanded project awareness across Web3 Twitter.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-skills project-tags">
+              <span class="skill-tag">Outreach</span>
+              <span class="skill-tag tag-more">Content Creation</span>
+              <span class="skill-tag tag-more">Community Engagements</span>
+              <span class="tag-overflow">+2</span>
+              </div>
+              <a class="btn-brutalist" href="/pow/#uptopia">View work →</a>
+            </div>
+          </article>
+
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="featured">
-        <div class="section-head">
-          <h2>Featured Work</h2>
-          <p>Threads, posts, and articles (preview cards).</p>
+    <!-- CTA BAND -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-inner">
+          <h2 class="cta-heading">Got a protocol<br>that needs a voice?</h2>
+          <a class="btn-primary" href="/contact/">Let's talk →</a>
         </div>
+      </div>
+    </section>
 
-        <div class="fw-grid" id="featuredGrid"></div>
-      </section>
-    </main>
-  </div>
+  </main>
 
-  <!-- Lightbox (used on /pow/ but included globally) -->
+  <!-- LIGHTBOX (kept for Work page proof images) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lb-backdrop" data-lb-close></div>
-    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <div class="lb-top">
-        <div class="lb-controls">
-          <button class="lb-btn" data-lb-prev aria-label="Previous">‹</button>
-          <button class="lb-btn" data-lb-next aria-label="Next">›</button>
+    <div class="lb-backdrop"></div>
+    <div class="lb-panel">
+      <div class="lb-bar">
+        <span id="lbCounter" class="lb-counter">1 / 1</span>
+        <div class="lb-btns">
+          <button data-lb-prev>←</button>
+          <button data-lb-next>→</button>
+          <button data-lb-close>✕</button>
         </div>
-        <button class="lb-btn lb-close" data-lb-close aria-label="Close">×</button>
       </div>
-
-      <img class="lb-img" id="lbImg" src="" alt="">
-      <div class="lb-counter" id="lbCounter"></div>
+      <img id="lbImg" class="lb-img" src="" alt="" />
     </div>
   </div>
 
