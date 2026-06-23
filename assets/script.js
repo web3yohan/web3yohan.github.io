@@ -568,7 +568,10 @@ window.addEventListener('load', () => {
     '.skills-inner'
   );
 
-  targets.forEach(el => el.classList.add('reveal'));
+  targets.forEach((el, index) => {
+    el.classList.add('reveal');
+    el.style.setProperty('--reveal-delay', `${(index % 6) * 0.035}s`);
+  });
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -592,6 +595,31 @@ window.addEventListener('load', () => {
     });
   }, 0);
 });
+
+(function initHeroBgVideo() {
+  const VIDEO_COUNT = 6;
+  const BASE_PATH   = '/assets/videos/';
+
+  const vid = document.getElementById('hero-video');
+  if (!vid) return;
+
+  function randomIndex() {
+    return Math.floor(Math.random() * VIDEO_COUNT) + 1;
+  }
+
+  function loadVideo(index) {
+    vid.style.opacity = '0';
+    vid.src = `${BASE_PATH}hero-${index}.mp4`;
+    vid.load();
+    vid.play().then(() => {
+      requestAnimationFrame(() => { vid.style.opacity = '0.5'; });
+    }).catch(() => {
+      vid.style.opacity = '0';
+    });
+  }
+
+  loadVideo(randomIndex());
+})();
 
 (function initGlobalEntrance() {
   const sequenceTargets = document.querySelectorAll('.page-hero .section-tag, .page-hero .page-title, .page-hero .page-sub');
